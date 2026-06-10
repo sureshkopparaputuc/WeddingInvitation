@@ -23,6 +23,9 @@
   --white:     #ffffff;
   --muted:     #8b8070;
   --text-dim:  rgba(255,255,255,0.55);
+  --haldi: #d8a92d;
+  --wedding-gold: #c9a84c;
+  --reception: #d6c2a1;
 }
 
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
@@ -394,6 +397,28 @@ body { font-family: 'Jost', sans-serif; background: var(--pearl); color: var(--i
 .event-link svg { transition: transform 0.2s; }
 .event-link:hover svg { transform: translateX(4px); }
 
+
+.event-accent{width:60px;height:2px;margin-bottom:18px;}
+
+.event-panel.haldi .event-panel-overlay{
+background:linear-gradient(to top,rgba(216,169,45,0.92) 0%,rgba(10,12,22,0.70) 35%,rgba(10,12,22,0.15) 100%);
+}
+.event-panel.haldi .event-accent{background:#d8a92d;}
+.event-panel.haldi .event-name{color:#f4d66a;}
+
+.event-panel.wedding .event-panel-overlay{
+background:linear-gradient(to top,rgba(12,12,12,0.96) 0%,rgba(201,168,76,0.25) 35%,rgba(10,12,22,0.10) 100%);
+}
+.event-panel.wedding .event-accent{background:#c9a84c;}
+.event-panel.wedding .event-name{text-shadow:0 0 25px rgba(201,168,76,.25);}
+
+.event-panel.reception .event-panel-overlay{
+background:linear-gradient(to top,rgba(25,25,25,0.96) 0%,rgba(214,194,161,0.28) 35%,rgba(10,12,22,0.10) 100%);
+}
+.event-panel.reception .event-accent{background:#d6c2a1;}
+.event-panel.reception .event-name{color:#e8d9c0;}
+
+
 /* ════════════════════════════════════════
    LIVESTREAM
 ════════════════════════════════════════ */
@@ -591,10 +616,11 @@ footer::before {
 <section class="events-section">
 
   <!-- HALDI -->
-  <div class="event-panel">
+  <div class="event-panel haldi">
     <div class="event-panel-img"><img src="images/haldi.jpg" alt="Haldi Ceremony"></div>
     <div class="event-panel-overlay"></div>
     <div class="event-panel-content">
+      <div class="event-accent"></div>
       <h3 class="event-name">Haldi</h3>
       <p class="event-tagline">A joyful beginning filled with turmeric, laughter, and blessings.</p>
       <div class="event-meta-row">
@@ -615,8 +641,9 @@ footer::before {
     <div class="event-panel-img"><img src="images/wedding.jpg" alt="Wedding Ceremony"></div>
     <div class="event-panel-overlay"></div>
     <div class="event-panel-content">
+      <div class="event-accent"></div>
       <h3 class="event-name">Wedding</h3>
-      <p class="event-tagline">Two souls. One promise. A lifetime begins.</p>
+      <p class="event-tagline">Under sacred vows and timeless traditions, our forever begins.</p>
       <div class="event-meta-row">
         <span>03 July 2026</span>
         <span class="event-meta-dot"></span>
@@ -631,10 +658,11 @@ footer::before {
   </div>
 
   <!-- RECEPTION -->
-  <div class="event-panel">
+  <div class="event-panel reception">
     <div class="event-panel-img"><img src="images/reception.jpg" alt="Reception"></div>
     <div class="event-panel-overlay"></div>
     <div class="event-panel-content">
+      <div class="event-accent"></div>
       <h3 class="event-name">Reception</h3>
       <p class="event-tagline">An evening of celebration, music, dance and memories.</p>
       <div class="event-meta-row">
