@@ -139,6 +139,55 @@ body { font-family: 'Jost', sans-serif; background: var(--pearl); color: var(--i
 }
 .hero-scroll-line { width: 1px; height: 30px; background: linear-gradient(to bottom, var(--gold-line), transparent); }
 
+
+.hero-events{
+display:flex;
+justify-content:center;
+align-items:flex-start;
+gap:32px;
+margin-top:10px;
+}
+
+.hero-event{
+text-align:center;
+min-width:140px;
+}
+
+.hero-event-label{
+font-size:.62rem;
+letter-spacing:4px;
+text-transform:uppercase;
+color:#e2c97e;
+margin-bottom:8px;
+font-weight:500;
+}
+
+.hero-event-date{
+font-size:.72rem;
+color:rgba(255,255,255,.82);
+letter-spacing:1px;
+margin-bottom:6px;
+}
+
+.hero-event-city{
+font-size:.68rem;
+color:rgba(255,255,255,.6);
+letter-spacing:3px;
+text-transform:uppercase;
+}
+
+.hero-events-divider{
+width:1px;
+height:65px;
+background:linear-gradient(
+to bottom,
+transparent,
+rgba(201,168,76,.9),
+transparent
+);
+}
+
+
 /* ════════════════════════════════════════
    SLIDE 2 — OUR STORY
 ════════════════════════════════════════ */
@@ -372,10 +421,13 @@ body { font-family: 'Jost', sans-serif; background: var(--pearl); color: var(--i
   flex-shrink:0;
 }
 
+
 .event-time{
-  color:#e2c97e;
-  font-weight:500;
+  color:inherit;
+  font-size:inherit;
+  font-weight:inherit;
 }
+
 
 /* Venue sits below on its own, quieter */
 .event-venue {
@@ -490,6 +542,28 @@ background:linear-gradient(to top,rgba(25,25,25,0.96) 0%,rgba(214,194,161,0.28) 
 
 .event-link svg{
   margin-left:2px;
+}
+
+
+
+
+.event-time{
+  color:inherit;
+  font-size:inherit;
+  font-weight:inherit;
+}
+
+
+.event-link{
+background:#ffffff !important;
+color:#111628 !important;
+border:none !important;
+font-weight:600 !important;
+}
+
+.event-link:hover{
+background:#e2c97e !important;
+color:#111628 !important;
 }
 
 
@@ -622,12 +696,21 @@ footer::before {
 
     <div class="hero-rule"></div>
 
-    <div class="hero-dates">
-      <div class="hero-date-line date">Friday · 03 July 2026</div>
-      <div class="hero-date-line city">Secunderabad</div>
-      <div class="hero-date-line date">Sunday · 05 July 2026</div>
-      <div class="hero-date-line city">Vijayawada</div>
-    </div>
+<div class="hero-events">
+  <div class="hero-event">
+    <div class="hero-event-label">Wedding</div>
+    <div class="hero-event-date">Friday, 03 July 2026</div>
+    <div class="hero-event-city">Secunderabad</div>
+  </div>
+
+  <div class="hero-events-divider"></div>
+
+  <div class="hero-event">
+    <div class="hero-event-label">Reception</div>
+    <div class="hero-event-date">Sunday, 05 July 2026</div>
+    <div class="hero-event-city">Vijayawada</div>
+  </div>
+</div>
   </div>
 
   <div class="hero-scroll">
@@ -856,5 +939,36 @@ window.addEventListener('scroll',()=>{
 <style>
 .event-name{
   color:#ffffff !important;
+}
+</style>
+
+<style>
+.event-meta-row{
+  font-size:0.82rem !important;
+  font-weight:500 !important;
+  color:rgba(255,255,255,.95) !important;
+  letter-spacing:2px !important;
+}
+
+.event-time{
+  color:inherit !important;
+  font-size:inherit !important;
+  font-weight:inherit !important;
+}
+
+/* Premium glass map button */
+.event-link{
+  background:rgba(255,255,255,.12) !important;
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,.25) !important;
+  color:#ffffff !important;
+  font-weight:500 !important;
+}
+
+.event-link:hover{
+  background:rgba(255,255,255,.22) !important;
+  color:#ffffff !important;
+  transform:translateY(-2px);
 }
 </style>
