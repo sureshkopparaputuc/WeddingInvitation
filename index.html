@@ -56,25 +56,21 @@ body {
 .hero-photo{
   position:absolute;
   inset:0;
+
   background:
-    linear-gradient(rgba(0,0,0,.25),rgba(0,0,0,.45)),
+    linear-gradient(
+      rgba(0,0,0,.08),
+      rgba(0,0,0,.20)
+    ),
     url('images/couple.jpg');
+
   background-size:cover;
   background-position:center center;
   background-repeat:no-repeat;
+
   z-index:1;
 }
-/* Radial glow behind names */
-.hero::before {
-  content: '';
-  position: absolute;
-  width: 700px; height: 700px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(232,160,32,0.12) 0%, transparent 70%);
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-}
+
 
 /* SVG mandala rings */
 .mandala-ring {
@@ -116,12 +112,29 @@ body {
 
 .hero-names{
     font-family:'Cormorant Garamond',serif;
-    font-size:clamp(4rem,12vw,8rem);
-    line-height:.9;
+
+    font-size:clamp(5rem,14vw,9rem);
+
     font-weight:500;
-    color:#fff;
+
+    line-height:.88;
+
+    letter-spacing:-2px;
+
+    color:white;
+
     text-align:center;
-    text-shadow:0 4px 30px rgba(0,0,0,.4);
+
+    text-shadow:
+      0 2px 10px rgba(0,0,0,.15),
+      0 10px 30px rgba(0,0,0,.25);
+}
+
+.hero-content{
+    position:relative;
+    z-index:5;
+
+    margin-top:35vh;
 }
 
 .amp{
@@ -1183,9 +1196,7 @@ document.querySelectorAll('.reveal, .reveal-stagger').forEach(el=>io.observe(el)
 <style>
 .mandala-ring{display:none!important;}
 
-.hero-content{
-backdrop-filter: blur(2px);
-}
+
 
 .events-cinematic{
 position:relative;
