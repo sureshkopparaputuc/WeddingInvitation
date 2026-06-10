@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Suresh & Priyanka — 03 July 2026</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&family=Noto+Serif+Telugu:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+/* ─── TOKENS ───────────────────────────────────────────── */
+:root {
+  --night:   #0d0d1a;
+  --deep:    #1a1330;
+  --ivory:   #fdf6ec;
+  --warm:    #f5ede0;
+  --gold:    #e8a020;
+  --gold2:   #f0c060;
+  --saffron: #e05c10;
+  --red:     #c8391a;
+  --muted:   #8a7060;
+  --card:    #ffffff;
+  --border:  rgba(232,160,32,0.25);
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--ivory);
+  color: var(--night);
+  overflow-x: hidden;
+}
+
+/* ─── UTILITY ───────────────────────────────────────────── */
+.serif { font-family:'Cormorant Garamond', serif; }
+.telugu { font-family:'Noto Serif Telugu', serif; }
+
+/* ─── HERO ─────────────────────────────────────────────── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  background: linear-gradient(180deg, #3b2f2f, #6b4f3a, #f5ede0);
+  overflow: hidden;
+}
+
+/* Hero photo layer */
+.hero-photo {
+  position: absolute; inset: 0;
+  background: url('images/hero.jpg') center/cover no-repeat;
+  opacity: 0.22;
+  transition: opacity 1.5s ease;
+}
+
+/* Radial glow behind names */
+.hero::before {
+  content: '';
+  position: absolute;
+  width: 700px; height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(232,160,32,0.12) 0%, transparent 70%);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+/* SVG mandala rings */
+.mandala-ring {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  color: white;
+  padding: 40px 24px;
+  max-width: 900px;
+  animation: heroFadeUp 1.4s cubic-bezier(.22,1,.36,1) both;
+}
+
+.hero-tag {
+  display: inline-block;
+  font-size: .72rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 1px solid var(--border);
+  padding: 8px 20px;
+  border-radius: 99px;
+  margin-bottom: 28px;
+  background: rgba(232,160,32,0.08);
+  font-weight: 600;
+}
+
+.hero-invite {
+  font-size: .95rem;
+  color: rgba(255,255,255,0.65);
+  letter-spacing: 1.5px;
+  margin-bottom: 10px;
+}
+
+.hero-names {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3.8rem, 10vw, 7.5rem);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -1px;
+  color: var(--ivory);
+}
+
+.hero-names .amp {
+  color: var(--gold);
+  font-style: italic;
+  font-weight: 300;
+  font-size: 0.75em;
+  display: block;
+  margin: 6px 0;
+}
+
+.hero-telugu {
+  font-family: 'Noto Serif Telugu', serif;
+  font-size: 1.3rem;
+  color: rgba(255,255,255,0.45);
+  margin: 14px 0 24px;
+}
+
+.hero-date-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  color: rgba(255,255,255,0.7);
+  font-size: .85rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-top: 6px;
+}
+.hero-date-row::before,
+.hero-date-row::after {
+  content: '';
+  display: block;
+  width: 50px; height: 1px;
+  background: var(--border);
+}
+
+.hero-blurb {
+  margin-top: 30px;
+  font-size: 1rem;
+  line-height: 1.9;
+  color: rgba(255,255,255,0.6);
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.scroll-hint {
+  margin-top: 56px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255,255,255,0.35);
+  font-size: .8rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  animation: scrollBob 2s ease-in-out infinite;
+}
+.scroll-hint svg { opacity: 0.5; }
+
+/* ─── SECTION BASE ─────────────────────────────────────── */
+section { padding: 90px 24px; }
+.container { max-width: 1040px; margin: auto; }
+
+.section-label {
+  text-align: center;
+  margin-bottom: 56px;
+}
+.section-label .eyebrow {
+  display: inline-block;
+  font-size: .7rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--saffron);
+  margin-bottom: 12px;
+}
+.section-label h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  font-weight: 600;
+  line-height: 1.1;
+}
+.section-label p {
+  color: var(--muted);
+  margin-top: 10px;
+  font-size: .95rem;
+}
+
+/* ─── GOLD DIVIDER ─────────────────────────────────────── */
+.gold-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin: 0 auto 72px;
+  opacity: 0.55;
+}
+.gold-divider::before,
+.gold-divider::after {
+  content: '';
+  flex: 1;
+  max-width: 180px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold));
+}
+.gold-divider::after {
+  background: linear-gradient(90deg, var(--gold), transparent);
+}
+
+/* ─── COUNTDOWN ────────────────────────────────────────── */
+.countdown-section {
+  background: var(--deep);
+  color: white;
+  text-align: center;
+}
+.countdown-section .eyebrow { color: var(--gold); }
+.countdown-section h2 { color: var(--ivory); }
+
+.timer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 48px;
+}
+
+.t-box {
+  min-width: 90px;
+  padding: 24px 16px 20px;
+  border: 1px solid rgba(232,160,32,0.2);
+  border-radius: 20px;
+  background: rgba(255,255,255,0.04);
+}
+.t-box::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+.t-box .num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3rem;
+  font-weight: 600;
+  color: var(--gold2);
+  line-height: 1;
+  display: block;
+}
+.t-box .lbl {
+  display: block;
+  margin-top: 8px;
+  font-size: .7rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+}
+
+/* ─── EVENTS TIMELINE ──────────────────────────────────── */
+.events-section { background: var(--warm); }
+
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 28px;
+}
+
+.event-card {
+  background: var(--card);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.06);
+  transition: transform .35s ease, box-shadow .35s ease;
+  position: relative;
+}
+.event-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+}
+
+/* top accent stripe */
+.event-card::before {
+  content: '';
+  display: block;
+  height: 4px;
+  background: linear-gradient(90deg, var(--saffron), var(--gold));
+}
+
+.event-photo {
+  width: 100%;
+  height: 200px;
+  background: var(--warm) url('images/venue.jpg') center/cover no-repeat;
+  position: relative;
+}
+.event-photo-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(13,13,26,0.7) 0%, transparent 60%);
+}
+.event-badge {
+  position: absolute;
+  bottom: 16px; left: 20px;
+  font-size: .68rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: rgba(13,13,26,0.6);
+  padding: 5px 12px;
+  border-radius: 99px;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(232,160,32,0.3);
+}
+
+.event-body { padding: 28px 28px 24px; }
+
+.event-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.9rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.event-meta {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  color: var(--muted);
+  font-size: .85rem;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+.event-meta svg { flex-shrink: 0; }
+
+.event-venue-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  background: var(--warm);
+  border-radius: 14px;
+  padding: 14px 18px;
+  transition: background .2s;
+}
+.event-venue-btn:hover { background: #eedfc8; }
+
+.venue-texts { flex: 1; }
+.venue-texts strong { display: block; font-size: .9rem; color: var(--night); }
+.venue-texts span { font-size: .8rem; color: var(--muted); margin-top: 2px; display: block; }
+
+.map-arrow {
+  font-size: .8rem;
+  color: var(--saffron);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* event photo placeholders per event */
+.event-card:nth-child(1) .event-photo { background-color: #f5d5b0; }
+.event-card:nth-child(2) .event-photo { background-color: #d4c5e8; }
+.event-card:nth-child(3) .event-photo { background-color: #b8d4c0; }
+
+/* placeholder icon in event photo */
+.event-photo-icon {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  opacity: 0.25;
+}
+
+/* ─── PARENTS ──────────────────────────────────────────── */
+.parents-section { text-align: center; }
+
+.parents-grid {
+  display: flex;
+  justify-content: center;
+  max-width: 420px;
+  margin: 0 auto;
+}
+@media(max-width: 640px) {
+  .parents-grid {
+    grid-template-columns: 1fr;
+  }
+  .parents-divider { display: none; }
+}
+
+.parent-side {
+  background: white;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.06);
+}
+.parent-photo {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  background: var(--warm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  color: var(--border);
+}
+.parent-photo img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+.parent-details { padding: 24px; }
+.parent-details h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  margin-bottom: 4px;
+}
+.parent-details p { color: var(--muted); font-size: .85rem; }
+
+.parents-divider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  color: var(--gold);
+}
+.parents-divider span {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--muted);
+  writing-mode: vertical-rl;
+  letter-spacing: 2px;
+}
+
+/* ─── STORY SECTION ────────────────────────────────────── */
+.story-section {
+  background: var(--night);
+  color: white;
+  text-align: center;
+}
+.story-section .eyebrow { color: var(--gold); }
+.story-section h2 { color: var(--ivory); }
+
+.story-text {
+  max-width: 680px;
+  margin: 0 auto;
+  line-height: 2;
+  font-size: 1.05rem;
+  color: rgba(255,255,255,0.65);
+}
+.story-text em {
+  color: var(--gold2);
+  font-style: normal;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2em;
+}
+
+.story-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.5rem, 4vw, 2.3rem);
+  font-style: italic;
+  color: var(--ivory);
+  max-width: 700px;
+  margin: 40px auto 0;
+  line-height: 1.5;
+  opacity: 0.85;
+}
+
+/* ─── LIVESTREAM ───────────────────────────────────────── */
+.live-section { background: var(--warm); text-align: center; }
+
+.live-card {
+  max-width: 600px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 28px;
+  padding: 52px 44px;
+  box-shadow: 0 12px 50px rgba(0,0,0,0.07);
+  position: relative;
+  overflow: hidden;
+}
+.live-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--red), var(--gold));
+}
+
+.live-icon {
+  width: 56px; height: 56px;
+  background: linear-gradient(135deg, var(--red), var(--saffron));
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+}
+
+.live-card p { color: var(--muted); line-height: 1.8; margin-top: 10px; }
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 28px;
+  padding: 15px 32px;
+  border-radius: 99px;
+  background: linear-gradient(135deg, var(--saffron), var(--gold));
+  color: white;
+  font-weight: 500;
+  text-decoration: none;
+  font-size: .95rem;
+  letter-spacing: .5px;
+  transition: transform .2s, box-shadow .2s;
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(200,57,26,0.3);
+}
+
+/* ─── RSVP ─────────────────────────────────────────────── */
+.rsvp-section {
+  background: var(--deep);
+  text-align: center;
+}
+.rsvp-section .eyebrow { color: var(--gold); }
+.rsvp-section h2 { color: var(--ivory); }
+.rsvp-section p { color: rgba(255,255,255,0.5); }
+
+.contact-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 44px;
+}
+
+.contact-chip {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(232,160,32,0.2);
+  border-radius: 99px;
+  padding: 14px 24px;
+  color: white;
+  text-decoration: none;
+  font-size: .9rem;
+  transition: background .2s, border-color .2s;
+}
+.contact-chip:hover {
+  background: rgba(232,160,32,0.12);
+  border-color: rgba(232,160,32,0.5);
+}
+.contact-chip svg { color: var(--gold); flex-shrink: 0; }
+
+/* ─── FOOTER ───────────────────────────────────────────── */
+footer {
+  background: var(--night);
+  text-align: center;
+  padding: 80px 24px 50px;
+  position: relative;
+  overflow: hidden;
+}
+
+footer::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+}
+
+.footer-names {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  color: var(--ivory);
+  font-weight: 300;
+  letter-spacing: 2px;
+}
+.footer-names em {
+  color: var(--gold);
+  font-weight: 500;
+  font-style: italic;
+}
+
+.footer-sub {
+  margin-top: 14px;
+  color: rgba(255,255,255,0.35);
+  font-size: .85rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.footer-date {
+  margin-top: 24px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  color: var(--gold);
+  letter-spacing: 1px;
+}
+
+/* ─── SCROLL ANIMATIONS ────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(36px);
+  transition: opacity .8s ease, transform .8s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* stagger children */
+.reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+.reveal-stagger.visible > *:nth-child(1) { opacity:1; transform:none; transition-delay:.0s; }
+.reveal-stagger.visible > *:nth-child(2) { opacity:1; transform:none; transition-delay:.12s; }
+.reveal-stagger.visible > *:nth-child(3) { opacity:1; transform:none; transition-delay:.24s; }
+.reveal-stagger.visible > *:nth-child(4) {
+  opacity: 1;
+  transform: none;
+  transition-delay: .36s;
+}
+
+/* ─── KEYFRAMES ────────────────────────────────────────── */
+@keyframes heroFadeUp {
+  from { opacity:0; transform:translateY(40px); }
+  to   { opacity:1; transform:none; }
+}
+@keyframes rotateSlow {
+  from { transform: translate(-50%,-50%) rotate(0deg); }
+  to   { transform: translate(-50%,-50%) rotate(360deg); }
+}
+@keyframes rotateReverse {
+  from { transform: translate(-50%,-50%) rotate(0deg); }
+  to   { transform: translate(-50%,-50%) rotate(-360deg); }
+}
+@keyframes scrollBob {
+  0%,100% { transform: translateY(0); }
+  50%     { transform: translateY(6px); }
+}
+@keyframes shimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+
+/* ─── RESPONSIVE ───────────────────────────────────────── */
+@media(max-width: 768px) {
+  section { padding: 70px 20px; }
+  .parents-grid { gap: 24px; }
+  .live-card { padding: 36px 28px; }
+  .contact-row { flex-direction: column; align-items: center; }
+}
+
+@media(prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- ════════════════════ HERO ════════════════════ -->
+<section class="hero" id="top">
+  <div class="hero-photo"></div>
+
+  <!-- Mandala SVG rings -->
+  <svg class="mandala-ring" width="780" height="780" viewBox="0 0 780 780"
+       style="animation: rotateSlow 90s linear infinite; opacity:.18;">
+    <circle cx="390" cy="390" r="370" fill="none" stroke="#e8a020" stroke-width="1"
+            stroke-dasharray="6 14"/>
+    <!-- 16 petals -->
+    <g>
+      <script>/* petals injected below */</script>
+    </g>
+  </svg>
+  <svg class="mandala-ring" width="560" height="560" viewBox="0 0 560 560"
+       style="animation: rotateReverse 60s linear infinite; opacity:.14;">
+    <circle cx="280" cy="280" r="265" fill="none" stroke="#e8a020" stroke-width="1"
+            stroke-dasharray="3 9"/>
+    <polygon points="280,20 295,260 280,540 265,260"
+             fill="none" stroke="#e8a020" stroke-width="0.7" opacity=".6"/>
+    <polygon points="20,280 260,265 540,280 260,295"
+             fill="none" stroke="#e8a020" stroke-width="0.7" opacity=".6"/>
+    <polygon points="280,20 520,155 520,405 280,540 40,405 40,155"
+             fill="none" stroke="#e8a020" stroke-width="0.5" opacity=".5"/>
+  </svg>
+  <svg class="mandala-ring" width="360" height="360" viewBox="0 0 360 360"
+       style="animation: rotateSlow 40s linear infinite; opacity:.2;">
+    <circle cx="180" cy="180" r="168" fill="none" stroke="#f0c060" stroke-width="1.5"
+            stroke-dasharray="2 6"/>
+    <circle cx="180" cy="180" r="130" fill="none" stroke="#e8a020" stroke-width="0.8"
+            stroke-dasharray="4 8"/>
+  </svg>
+
+  <div class="hero-content">
+    <div class="hero-tag">KOPPARAPU's FAMILY</div>
+
+    <div class="hero-invite">joyfully invites you to the wedding of</div>
+
+    <div class="hero-names">
+      Suresh
+      <span class="amp">&amp;</span>
+      Priyanka
+    </div>
+
+    <div class="hero-telugu">సురేష్ & ప్రియంక వివాహ మహోత్సవము</div>
+
+    <div class="hero-date-row">Friday · 03 July 2026</div>
+
+    <div class="hero-blurb">
+      With joy in our hearts and blessings of our elders, we invite you to
+      share in the celebration of this sacred union.
+    </div>
+
+    <div class="scroll-hint">
+      <svg width="18" height="28" viewBox="0 0 18 28" fill="none">
+        <rect x="1" y="1" width="16" height="26" rx="8" stroke="currentColor" stroke-width="1.5"/>
+        <circle cx="9" cy="8" r="2.5" fill="currentColor" style="animation: scrollBob 1.8s ease-in-out infinite;"/>
+      </svg>
+      Scroll
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════ COUNTDOWN ════════════════════ -->
+<section class="countdown-section reveal">
+  <div class="container">
+    <div class="section-label">
+      <div class="eyebrow">The Big Day Is</div>
+      <h2 class="serif">Counting Down</h2>
+    </div>
+
+    <div class="timer reveal-stagger" id="timer-row">
+      <div class="t-box"><span class="num" id="cd-d">00</span><span class="lbl">Days</span></div>
+      <div class="t-box"><span class="num" id="cd-h">00</span><span class="lbl">Hours</span></div>
+      <div class="t-box"><span class="num" id="cd-m">00</span><span class="lbl">Minutes</span></div>
+      <div class="t-box"><span class="num" id="cd-s">00</span><span class="lbl">Seconds</span></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════ EVENTS ════════════════════ -->
+<section class="events-section">
+  <div class="container">
+    <div class="section-label reveal">
+      <div class="eyebrow">Celebrations</div>
+      <h2 class="serif">Wedding Ceremonies</h2>
+      <p>We warmly request your presence at every occasion</p>
+    </div>
+
+    <div class="events-grid reveal-stagger">
+
+      <!-- HALDI -->
+      <div class="event-card">
+        <div class="event-photo">
+          <!-- Replace with: <img src="images/haldi.jpg" ...> -->
+          <svg class="event-photo-icon" width="64" height="64" viewBox="0 0 64 64" fill="none">
+            <circle cx="32" cy="32" r="28" stroke="#e8a020" stroke-width="2" stroke-dasharray="5 4"/>
+            <path d="M32 14 C38 20 44 26 32 50 C20 26 26 20 32 14Z" fill="#e8a020"/>
+          </svg>
+          <div class="event-photo-overlay"></div>
+          <div class="event-badge">Haldi</div>
+        </div>
+        <div class="event-body">
+          <div class="event-name serif">Haldi Ceremony</div>
+          <div class="event-meta">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Friday, 03 July 2026
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            9:00 AM
+          </div>
+          <a class="event-venue-btn"
+             href="https://www.google.com/maps/search/?api=1&query=Dr+Homi+J+Bhabha+Convention+Centre+Secunderabad"
+             target="_blank">
+            <div class="venue-texts">
+              <strong>Dr. Homi J Bhabha Convention Centre</strong>
+              <span>Secunderabad, Hyderabad</span>
+            </div>
+            <span class="map-arrow">Maps →</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- WEDDING -->
+      <div class="event-card">
+        <div class="event-photo">
+          <svg class="event-photo-icon" width="64" height="64" viewBox="0 0 64 64" fill="none">
+            <circle cx="32" cy="32" r="28" stroke="#9b7fc8" stroke-width="2" stroke-dasharray="5 4"/>
+            <path d="M22 32 Q32 14 42 32 Q32 50 22 32Z" fill="#9b7fc8" opacity=".7"/>
+            <circle cx="32" cy="32" r="6" fill="#9b7fc8"/>
+          </svg>
+          <div class="event-photo-overlay"></div>
+          <div class="event-badge">Wedding</div>
+        </div>
+        <div class="event-body">
+          <div class="event-name serif">Wedding</div>
+          <div class="event-meta">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Friday, 03 July 2026
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            8:34 PM (Muhurtam)
+          </div>
+          <a class="event-venue-btn"
+             href="https://www.google.com/maps/search/?api=1&query=Dr+Homi+J+Bhabha+Convention+Centre+Secunderabad"
+             target="_blank">
+            <div class="venue-texts">
+              <strong>Dr. Homi J Bhabha Convention Centre</strong>
+              <span>Secunderabad, Hyderabad</span>
+            </div>
+            <span class="map-arrow">Maps →</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- RECEPTION -->
+      <div class="event-card">
+        <div class="event-photo">
+          <svg class="event-photo-icon" width="64" height="64" viewBox="0 0 64 64" fill="none">
+            <circle cx="32" cy="32" r="28" stroke="#5a8c6a" stroke-width="2" stroke-dasharray="5 4"/>
+            <path d="M32 10 L37 26 L54 26 L40 36 L45 52 L32 42 L19 52 L24 36 L10 26 L27 26Z" fill="#5a8c6a" opacity=".6"/>
+          </svg>
+          <div class="event-photo-overlay"></div>
+          <div class="event-badge">Reception</div>
+        </div>
+        <div class="event-body">
+          <div class="event-name serif">Wedding Reception</div>
+          <div class="event-meta">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Sunday, 05 July 2026
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            7:00 PM
+          </div>
+          <a class="event-venue-btn"
+             href="https://www.google.com/maps/search/?api=1&query=N+Convention+Center+Bhavanipuram+Vijayawada"
+             target="_blank">
+            <div class="venue-texts">
+              <strong>N Convention Center</strong>
+              <span>Bhavanipuram, Vijayawada</span>
+            </div>
+            <span class="map-arrow">Maps →</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════ STORY ════════════════════ -->
+<section class="story-section">
+  <div class="container">
+    <div class="section-label reveal">
+      <div class="eyebrow">Our Story</div>
+      <h2 class="serif">Two Lives, One Journey</h2>
+    </div>
+
+    <p class="story-text reveal">
+      Every love story is beautiful, but ours is our favourite.
+      From the first moment we met to this day — every memory, every laugh,
+      every quiet evening has brought us here to this sacred beginning.
+      <em>We are grateful for every person who has walked this journey with us.</em>
+    </p>
+
+    <p class="story-quote reveal">
+      "You are my today and all of my tomorrows."
+    </p>
+  </div>
+</section>
+
+
+<!-- ════════════════════ PARENTS ════════════════════ -->
+<section class="parents-section">
+  <div class="container">
+    <div class="section-label reveal">
+      <div class="eyebrow">With Blessings Of</div>
+      <h2 class="serif">Our Beloved Parents</h2>
+    </div>
+
+    <div class="parents-grid reveal">
+
+      <!-- Groom's side -->
+      <div class="parent-side">
+        <div class="parent-photo">
+          <!-- Replace with: <img src="images/grooms-parents.jpg" alt="Groom's Parents"> -->
+          <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+            <circle cx="30" cy="22" r="12" stroke="#e8a020" stroke-width="2"/>
+            <path d="M8 52 C8 38 52 38 52 52" stroke="#e8a020" stroke-width="2" fill="none"/>
+          </svg>
+        </div>
+        <div class="parent-details">
+          <h3 class="serif">Subramanyam & Padmavathi</h3>
+          <p>Parents of the Groom</p>
+        </div>
+      </div>
+
+
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════ LIVESTREAM ════════════════════ -->
+<section class="live-section">
+  <div class="container">
+    <div class="section-label reveal">
+      <div class="eyebrow">Joining Virtually?</div>
+      <h2 class="serif">Live Stream</h2>
+      <p>For loved ones who cannot be with us in person</p>
+    </div>
+
+    <div class="live-card reveal">
+      <div class="live-icon">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+          <circle cx="12" cy="12" r="2"/>
+          <path d="M8.5 8.5a5 5 0 1 0 7.07 7.07"/>
+          <path d="M5.5 5.5a9 9 0 1 0 12.73 12.73"/>
+        </svg>
+      </div>
+      <h3 class="serif" style="font-size:1.8rem; margin-bottom:8px;">Watch Live</h3>
+      <p>The live streaming link will be shared here closer to the wedding date. Bookmark this page and return on 03 July 2026.</p>
+      <a class="btn-primary" href="#">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/>
+        </svg>
+        Live Stream — Coming Soon
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════ RSVP / CONTACT ════════════════════ -->
+<section class="rsvp-section">
+  <div class="container">
+    <div class="section-label reveal">
+      <div class="eyebrow">Get In Touch</div>
+      <h2 class="serif" style="color:var(--ivory);">RSVP & Contact</h2>
+      <p>For queries or to confirm your attendance</p>
+    </div>
+
+    <div class="contact-row reveal-stagger">
+      <a class="contact-chip" href="tel:+919501993832">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7 12.8 12.8 0 0 0 .7 2.8 2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4 12.8 12.8 0 0 0 2.8.7 2 2 0 0 1 1.7 2z"/>
+        </svg>
+        +91 99999 99999
+      </a>
+      <a class="contact-chip" href="mailto:wedding@example.com">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+          <polyline points="22,6 12,13 2,6"/>
+        </svg>
+        wedding@example.com
+      </a>
+      <a class="contact-chip" href="https://wa.me/9501993832" target="_blank">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 8.5-8.5 8.5 8.5 0 0 1 8.5 8.5z"/>
+        </svg>
+        WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<!-- ════════════════════ SCRIPTS ════════════════════ -->
+<script>
+/* ── Countdown ── */
+const weddingTime = new Date("July 3, 2026 20:34:00").getTime();
+function pad(n){ return String(Math.max(0,n)).padStart(2,'0'); }
+function updateCountdown(){
+  const diff = weddingTime - Date.now();
+  document.getElementById('cd-d').textContent = pad(Math.floor(diff/(864e5)));
+  document.getElementById('cd-h').textContent = pad(Math.floor((diff%864e5)/36e5));
+  document.getElementById('cd-m').textContent = pad(Math.floor((diff%36e5)/6e4));
+  document.getElementById('cd-s').textContent = pad(Math.floor((diff%6e4)/1e3));
+}
+setInterval(updateCountdown, 1000);
+updateCountdown();
+
+/* ── Scroll reveal ── */
+const io = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('visible');
+      io.unobserve(e.target);
+    }
+  });
+},{threshold:0.12});
+
+document.querySelectorAll('.reveal, .reveal-stagger').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
