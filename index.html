@@ -357,14 +357,20 @@ section { padding: 90px 24px; }
   margin-bottom: 6px;
 }
 
-.event-meta {
-  display: flex;
-  gap: 18px;
-  align-items: center;
-  color: var(--muted);
-  font-size: .85rem;
-  margin-bottom: 20px;
-  flex-wrap: wrap;
+.event-meta{
+  display:flex;
+  align-items:center;
+  gap:16px;
+
+  font-size:.95rem;
+  font-weight:500;
+
+  letter-spacing:2px;
+  text-transform:uppercase;
+
+  color:rgba(255,255,255,.85);
+
+  margin:18px 0 24px;
 }
 .event-meta svg { flex-shrink: 0; }
 
@@ -769,13 +775,13 @@ footer::before {
   margin-bottom: 16px;
 }
 
-.event-meta {
-  display: flex;
-  gap: 14px;
-  flex-wrap: wrap;
-  font-size: 0.85rem;
-  color: rgba(255,255,255,0.6);
-  margin-bottom: 18px;
+.meta-separator{
+  width:1px;
+  height:18px;
+
+  background:#e8a020;
+
+  opacity:.8;
 }
 
 /* button */
@@ -930,10 +936,13 @@ footer::before {
       <h3 class="serif">Haldi</h3>
       <p>A joyful beginning filled with turmeric, laughter, and blessings.</p>
 
-      <div class="event-meta">
-        <span>📅 03 July 2026</span>
-        <span>🕘 9:00 AM</span>
-      </div>
+		<div class="event-meta">
+		  <span>03 JULY 2026</span>
+
+		  <span class="meta-separator"></span>
+
+		  <span>9:00 AM</span>
+		</div>
 
       <a class="event-btn"
          href="https://www.google.com/maps/search/?api=1&query=Dr+Homi+J+Bhabha+Convention+Centre+Secunderabad"
@@ -954,10 +963,13 @@ footer::before {
       <h3 class="serif">Wedding</h3>
       <p>Two souls. One promise. A lifetime begins.</p>
 
-      <div class="event-meta">
-        <span>📅 03 July 2026</span>
-        <span>🕣 8:34 PM (Muhurtam)</span>
-      </div>
+		<div class="event-meta">
+		  <span>03 JULY 2026</span>
+
+		  <span class="meta-separator"></span>
+
+		  <span>8:34 PM</span>
+		</div>
 
       <a class="event-btn"
          href="https://www.google.com/maps/search/?api=1&query=Dr+Homi+J+Bhabha+Convention+Centre+Secunderabad"
@@ -978,10 +990,13 @@ footer::before {
       <h3 class="serif">Reception</h3>
       <p>An evening of celebration, music, dance and memories.</p>
 
-      <div class="event-meta">
-        <span>📅 05 July 2026</span>
-        <span>🕖 7:00 PM</span>
-      </div>
+		<div class="event-meta">
+		  <span>05 JULY 2026</span>
+
+		  <span class="meta-separator"></span>
+
+		  <span>7:00 PM</span>
+		</div>
 
       <a class="event-btn"
          href="https://www.google.com/maps/search/?api=1&query=N+Convention+Center+Bhavanipuram+Vijayawada"
