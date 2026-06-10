@@ -65,7 +65,7 @@ body {
     url('images/couple.jpg');
 
   background-size:cover;
-  background-position:center center;
+  background-position:center 35%;
   background-repeat:no-repeat;
 
   z-index:1;
@@ -838,47 +838,66 @@ footer::before {
 }
 
 .family-intro{
-    background:#0f0f0f;
-    text-align:center;
-    padding:0;
+    position:relative;
+    min-height:100vh;
+    overflow:hidden;
+}
+
+.family-bg{
+    position:absolute;
+    inset:0;
+
+    background:url('images/grouppic.jpg') center 35%/cover no-repeat;
+
+    z-index:1;
+}
+
+.family-overlay{
+    position:absolute;
+    inset:0;
+
+    background:linear-gradient(
+        rgba(0,0,0,.15),
+        rgba(0,0,0,.55)
+    );
+
+    z-index:2;
 }
 
 .family-content{
-    max-width:900px;
-    margin:0 auto;
-    padding:60px 24px 80px;
+    position:relative;
+    z-index:3;
+
+    min-height:100vh;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    padding:40px;
 }
 
 .family-label{
     color:#e8a020;
-
     text-transform:uppercase;
-
-    letter-spacing:4px;
-
+    letter-spacing:5px;
     font-size:.9rem;
-
     font-weight:600;
-
     margin-bottom:24px;
 }
 
 .family-heading{
-    color:#fff;
-
-    font-size:clamp(2rem,5vw,4rem);
-
-    line-height:1.25;
-
+    color:white;
+    max-width:850px;
+    font-size:clamp(2.2rem,5vw,4.5rem);
+    line-height:1.2;
     font-weight:500;
+    text-shadow:0 4px 20px rgba(0,0,0,.35);
 }
 
-.family-image{
-    width:100%;
-    display:block;
-    max-height:70vh;
-    object-fit:cover;
-}
 
 .event-number{position:absolute;right:30px;top:20px;font-family:'Cormorant Garamond',serif;font-size:7rem;font-weight:700;line-height:1;color:rgba(255,255,255,.08);pointer-events:none;}
 .event-divider{width:60px;height:1px;background:#e8a020;margin:20px 0;}
@@ -912,11 +931,9 @@ footer::before {
 
 <section class="family-intro">
 
-    <img
-        src="images/grouppic.jpg"
-        alt="Family"
-        class="family-image"
-    >
+    <div class="family-bg"></div>
+
+    <div class="family-overlay"></div>
 
     <div class="family-content">
 
@@ -933,6 +950,7 @@ footer::before {
     </div>
 
 </section>
+
 
 <!-- ════════════════════ COUNTDOWN ════════════════════ -->
 <section class="countdown-section reveal">
@@ -1069,32 +1087,6 @@ footer::before {
 </section>
 
 
-<!-- ════════════════════ PARENTS ════════════════════ -->
-<section class="parents-section">
-  <div class="container">
-    <div class="section-label reveal">
-      <div class="eyebrow">With Blessings Of</div>
-      <h2 class="serif">Our Beloved Parents</h2>
-    </div>
-
-    <div class="parents-grid reveal">
-
-      <!-- Groom's side -->
-      <div class="parent-side">
-		<div class="parent-photo">
-		  <img src="images/parents.jpg" alt="Parents">
-		</div>
-        <div class="parent-details">
-          <h3 class="serif">Subramanyam & Padmavathi</h3>
-          <p>Parents of the Groom</p>
-        </div>
-      </div>
-
-
-
-    </div>
-  </div>
-</section>
 
 
 <!-- ════════════════════ LIVESTREAM ════════════════════ -->
