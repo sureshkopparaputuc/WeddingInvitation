@@ -332,7 +332,7 @@ body { font-family: 'Jost', sans-serif; background: var(--pearl); color: var(--i
 .event-tagline {
   font-size: 0.9rem;
   font-weight: 300;
-  color: rgba(255,255,255,0.55);
+  color: rgba(255,255,255,0.82);
   line-height: 1.7;
   margin-bottom: 24px;
   max-width: 400px;
@@ -360,12 +360,21 @@ body { font-family: 'Jost', sans-serif; background: var(--pearl); color: var(--i
   margin-bottom: 10px;
 }
 
-.event-meta-dot {
-  width: 3px; height: 3px;
-  border-radius: 50%;
-  background: var(--gold);
-  opacity: 0.8;
-  flex-shrink: 0;
+.event-divider{
+  width:1px;
+  height:18px;
+  background:linear-gradient(
+    to bottom,
+    transparent,
+    rgba(201,168,76,.95),
+    transparent
+  );
+  flex-shrink:0;
+}
+
+.event-time{
+  color:#e2c97e;
+  font-weight:500;
 }
 
 /* Venue sits below on its own, quieter */
@@ -404,19 +413,84 @@ body { font-family: 'Jost', sans-serif; background: var(--pearl); color: var(--i
 background:linear-gradient(to top,rgba(216,169,45,0.92) 0%,rgba(10,12,22,0.70) 35%,rgba(10,12,22,0.15) 100%);
 }
 .event-panel.haldi .event-accent{background:#d8a92d;}
-.event-panel.haldi .event-name{color:#f4d66a;}
+
 
 .event-panel.wedding .event-panel-overlay{
 background:linear-gradient(to top,rgba(12,12,12,0.96) 0%,rgba(201,168,76,0.25) 35%,rgba(10,12,22,0.10) 100%);
 }
 .event-panel.wedding .event-accent{background:#c9a84c;}
-.event-panel.wedding .event-name{text-shadow:0 0 25px rgba(201,168,76,.25);}
+.event-panel.wedding .event-name{color:#ffffff;}
 
 .event-panel.reception .event-panel-overlay{
 background:linear-gradient(to top,rgba(25,25,25,0.96) 0%,rgba(214,194,161,0.28) 35%,rgba(10,12,22,0.10) 100%);
 }
 .event-panel.reception .event-accent{background:#d6c2a1;}
-.event-panel.reception .event-name{color:#e8d9c0;}
+
+
+
+
+/* CINEMATIC PARALLAX */
+.event-panel-img{
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+.timeline-connector{
+  position:absolute;
+  left:50%;
+  bottom:-50px;
+  width:1px;
+  height:100px;
+  background:linear-gradient(to bottom, rgba(201,168,76,.8), transparent);
+  z-index:3;
+}
+
+.timeline-dot{
+  position:absolute;
+  left:50%;
+  bottom:40px;
+  transform:translateX(-50%);
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background:#c9a84c;
+  box-shadow:0 0 20px rgba(201,168,76,.6);
+  z-index:3;
+}
+
+
+
+/* IMPROVED EVENT READABILITY */
+.event-tagline{
+  color:rgba(255,255,255,0.82) !important;
+  font-weight:400;
+}
+
+.event-venue{
+  color:rgba(255,255,255,0.78) !important;
+}
+
+.event-link{
+  border:none !important;
+  padding:14px 22px !important;
+  border-radius:999px !important;
+  background:rgba(201,168,76,.15);
+  border:1px solid rgba(201,168,76,.45) !important;
+  color:#fff !important;
+  font-weight:500 !important;
+  letter-spacing:1.5px !important;
+  transition:all .25s ease;
+}
+
+.event-link:hover{
+  background:#c9a84c !important;
+  color:#111628 !important;
+  transform:translateY(-2px);
+}
+
+.event-link svg{
+  margin-left:2px;
+}
 
 
 /* ════════════════════════════════════════
@@ -619,14 +693,14 @@ footer::before {
   <div class="event-panel haldi">
     <div class="event-panel-img"><img src="images/haldi.jpg" alt="Haldi Ceremony"></div>
     <div class="event-panel-overlay"></div>
-    <div class="event-panel-content">
+    <div class="timeline-dot"></div><div class="timeline-connector"></div><div class="event-panel-content">
       <div class="event-accent"></div>
       <h3 class="event-name">Haldi</h3>
-      <p class="event-tagline">A joyful beginning filled with turmeric, laughter, and blessings.</p>
+      <p class="event-tagline">A morning painted in turmeric, laughter, and family blessings.</p>
       <div class="event-meta-row">
         <span>03 July 2026</span>
-        <span class="event-meta-dot"></span>
-        <span>9:00 AM</span>
+        <span class="event-divider"></span>
+        <span class="event-time">9:00 AM</span>
       </div>
       <div class="event-venue">Dr. Homi J Bhabha Convention Centre, Secunderabad</div>
       <a class="event-link" href="https://www.google.com/maps/search/?api=1&query=Dr+Homi+J+Bhabha+Convention+Centre+Secunderabad" target="_blank">
@@ -640,14 +714,14 @@ footer::before {
   <div class="event-panel wedding">
     <div class="event-panel-img"><img src="images/wedding.jpg" alt="Wedding Ceremony"></div>
     <div class="event-panel-overlay"></div>
-    <div class="event-panel-content">
+    <div class="timeline-dot"></div><div class="timeline-connector"></div><div class="event-panel-content">
       <div class="event-accent"></div>
       <h3 class="event-name">Wedding</h3>
       <p class="event-tagline">Under sacred vows and timeless traditions, our forever begins.</p>
       <div class="event-meta-row">
         <span>03 July 2026</span>
-        <span class="event-meta-dot"></span>
-        <span>Muhurtham: 8:34 PM</span>
+        <span class="event-divider"></span>
+        <span class="event-time">Muhurtham: 8:34 PM</span>
       </div>
       <div class="event-venue">Dr. Homi J Bhabha Convention Centre, Secunderabad</div>
       <a class="event-link" href="https://www.google.com/maps/search/?api=1&query=Dr+Homi+J+Bhabha+Convention+Centre+Secunderabad" target="_blank">
@@ -661,14 +735,14 @@ footer::before {
   <div class="event-panel reception">
     <div class="event-panel-img"><img src="images/reception.jpg" alt="Reception"></div>
     <div class="event-panel-overlay"></div>
-    <div class="event-panel-content">
+    <div class="timeline-dot"></div><div class="timeline-connector"></div><div class="event-panel-content">
       <div class="event-accent"></div>
       <h3 class="event-name">Reception</h3>
-      <p class="event-tagline">An evening of celebration, music, dance and memories.</p>
+      <p class="event-tagline">An elegant evening of music, celebration, and cherished memories.</p>
       <div class="event-meta-row">
         <span>05 July 2026</span>
-        <span class="event-meta-dot"></span>
-        <span>7:00 PM</span>
+        <span class="event-divider"></span>
+        <span class="event-time">7:00 PM</span>
       </div>
       <div class="event-venue">N Convention Center, Bhavanipuram, Vijayawada</div>
       <a class="event-link" href="https://www.google.com/maps/search/?api=1&query=N+Convention+Center+Bhavanipuram+Vijayawada" target="_blank">
@@ -761,6 +835,26 @@ const observer = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.1 });
 document.querySelectorAll('.reveal, .stagger').forEach(el => observer.observe(el));
+
+/* Cinematic parallax */
+const panels=document.querySelectorAll('.event-panel');
+window.addEventListener('scroll',()=>{
+ panels.forEach(panel=>{
+   const img=panel.querySelector('.event-panel-img');
+   if(!img) return;
+   const rect=panel.getBoundingClientRect();
+   const speed=rect.top * -0.08;
+   img.style.transform=`translateY(${speed}px)`;
+ });
+},{passive:true});
+
 </script>
 </body>
 </html>
+
+
+<style>
+.event-name{
+  color:#ffffff !important;
+}
+</style>
