@@ -673,7 +673,128 @@ footer::before {
 @media(prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
+.events-cinematic {
+  background: #0d0d1a;
+  color: white;
+  padding-bottom: 60px;
+}
+
+/* each ceremony becomes full screen mobile card */
+.event-hero {
+  position: relative;
+  height: 92vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+}
+
+/* image layer */
+.event-img {
+  position: absolute;
+  inset: 0;
+}
+
+.event-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.1);
+}
+
+/* dark cinematic overlay */
+.event-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.85) 20%,
+    rgba(0,0,0,0.3) 60%,
+    rgba(0,0,0,0.1)
+  );
+}
+
+/* content card */
+.event-content {
+  position: relative;
+  z-index: 2;
+  padding: 28px;
+  max-width: 520px;
+  animation: fadeUp 1s ease both;
+}
+
+.badge {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 99px;
+  font-size: 0.7rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  background: rgba(232,160,32,0.15);
+  border: 1px solid rgba(232,160,32,0.3);
+  color: #f0c060;
+  margin-bottom: 12px;
+}
+
+.event-content h3 {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.event-content p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 16px;
+}
+
+.event-meta {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 18px;
+}
+
+/* button */
+.event-btn {
+  display: inline-block;
+  padding: 12px 20px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #e05c10, #e8a020);
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: transform 0.2s ease;
+}
+
+.event-btn:hover {
+  transform: translateY(-3px);
+}
+
+/* animation */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* desktop refinement */
+@media (min-width: 900px) {
+  .event-content {
+    margin-left: 10%;
+    padding-bottom: 60px;
+  }
+}
 </style>
+
 </head>
 <body>
 
@@ -760,110 +881,91 @@ footer::before {
 
 
 <!-- ════════════════════ EVENTS ════════════════════ -->
-<section class="events-section">
+<section class="events-cinematic">
+
   <div class="container">
     <div class="section-label reveal">
       <div class="eyebrow">Celebrations</div>
       <h2 class="serif">Wedding Ceremonies</h2>
-      <p>We warmly request your presence at every occasion</p>
-    </div>
-
-    <div class="events-grid reveal-stagger">
-
-      <!-- HALDI -->
-      <div class="event-card">
-        <div class="event-photo">
-          <!-- Replace with: <img src="images/haldi.jpg" ...> -->
-          <svg class="event-photo-icon" width="64" height="64" viewBox="0 0 64 64" fill="none">
-            <circle cx="32" cy="32" r="28" stroke="#e8a020" stroke-width="2" stroke-dasharray="5 4"/>
-            <path d="M32 14 C38 20 44 26 32 50 C20 26 26 20 32 14Z" fill="#e8a020"/>
-          </svg>
-          <div class="event-photo-overlay"></div>
-          <div class="event-badge">Haldi</div>
-        </div>
-        <div class="event-body">
-          <div class="event-name serif">Haldi Ceremony</div>
-          <div class="event-meta">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-            Friday, 03 July 2026
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            9:00 AM
-          </div>
-          <a class="event-venue-btn"
-             href="https://www.google.com/maps/search/?api=1&query=Dr+Homi+J+Bhabha+Convention+Centre+Secunderabad"
-             target="_blank">
-            <div class="venue-texts">
-              <strong>Dr. Homi J Bhabha Convention Centre</strong>
-              <span>Secunderabad, Hyderabad</span>
-            </div>
-            <span class="map-arrow">Maps →</span>
-          </a>
-        </div>
-      </div>
-
-      <!-- WEDDING -->
-      <div class="event-card">
-        <div class="event-photo">
-          <svg class="event-photo-icon" width="64" height="64" viewBox="0 0 64 64" fill="none">
-            <circle cx="32" cy="32" r="28" stroke="#9b7fc8" stroke-width="2" stroke-dasharray="5 4"/>
-            <path d="M22 32 Q32 14 42 32 Q32 50 22 32Z" fill="#9b7fc8" opacity=".7"/>
-            <circle cx="32" cy="32" r="6" fill="#9b7fc8"/>
-          </svg>
-          <div class="event-photo-overlay"></div>
-          <div class="event-badge">Wedding</div>
-        </div>
-        <div class="event-body">
-          <div class="event-name serif">Wedding</div>
-          <div class="event-meta">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-            Friday, 03 July 2026
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            8:34 PM (Muhurtam)
-          </div>
-          <a class="event-venue-btn"
-             href="https://www.google.com/maps/search/?api=1&query=Dr+Homi+J+Bhabha+Convention+Centre+Secunderabad"
-             target="_blank">
-            <div class="venue-texts">
-              <strong>Dr. Homi J Bhabha Convention Centre</strong>
-              <span>Secunderabad, Hyderabad</span>
-            </div>
-            <span class="map-arrow">Maps →</span>
-          </a>
-        </div>
-      </div>
-
-      <!-- RECEPTION -->
-      <div class="event-card">
-        <div class="event-photo">
-          <svg class="event-photo-icon" width="64" height="64" viewBox="0 0 64 64" fill="none">
-            <circle cx="32" cy="32" r="28" stroke="#5a8c6a" stroke-width="2" stroke-dasharray="5 4"/>
-            <path d="M32 10 L37 26 L54 26 L40 36 L45 52 L32 42 L19 52 L24 36 L10 26 L27 26Z" fill="#5a8c6a" opacity=".6"/>
-          </svg>
-          <div class="event-photo-overlay"></div>
-          <div class="event-badge">Reception</div>
-        </div>
-        <div class="event-body">
-          <div class="event-name serif">Wedding Reception</div>
-          <div class="event-meta">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-            Sunday, 05 July 2026
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-            7:00 PM
-          </div>
-          <a class="event-venue-btn"
-             href="https://www.google.com/maps/search/?api=1&query=N+Convention+Center+Bhavanipuram+Vijayawada"
-             target="_blank">
-            <div class="venue-texts">
-              <strong>N Convention Center</strong>
-              <span>Bhavanipuram, Vijayawada</span>
-            </div>
-            <span class="map-arrow">Maps →</span>
-          </a>
-        </div>
-      </div>
-
+      <p>Each moment of our journey, beautifully celebrated</p>
     </div>
   </div>
+
+  <!-- HALDI -->
+  <div class="event-hero">
+    <div class="event-img">
+      <img src="images/haldi.jpg" alt="Haldi Ceremony">
+    </div>
+    <div class="event-overlay"></div>
+
+    <div class="event-content">
+      <div class="badge">Haldi</div>
+      <h3 class="serif">Haldi Ceremony</h3>
+      <p>A joyful beginning filled with turmeric, laughter, and blessings from our loved ones.</p>
+
+      <div class="event-meta">
+        <span>📅 03 July 2026</span>
+        <span>🕘 9:00 AM</span>
+      </div>
+
+      <a class="event-btn"
+         href="https://www.google.com/maps/search/?api=1&query=Dr+Homi+J+Bhabha+Convention+Centre+Secunderabad"
+         target="_blank">
+        View Venue →
+      </a>
+    </div>
+  </div>
+
+  <!-- WEDDING -->
+  <div class="event-hero">
+    <div class="event-img">
+      <img src="images/wedding.jpg" alt="Wedding Ceremony">
+    </div>
+    <div class="event-overlay"></div>
+
+    <div class="event-content">
+      <div class="badge">Wedding</div>
+      <h3 class="serif">Wedding Ceremony</h3>
+      <p>The sacred moment where two souls become one, surrounded by divine blessings.</p>
+
+      <div class="event-meta">
+        <span>📅 03 July 2026</span>
+        <span>🕣 8:34 PM (Muhurtam)</span>
+      </div>
+
+      <a class="event-btn"
+         href="https://www.google.com/maps/search/?api=1&query=Dr+Homi+J+Bhabha+Convention+Centre+Secunderabad"
+         target="_blank">
+        View Venue →
+      </a>
+    </div>
+  </div>
+
+  <!-- RECEPTION -->
+  <div class="event-hero">
+    <div class="event-img">
+      <img src="images/reception.jpg" alt="Reception">
+    </div>
+    <div class="event-overlay"></div>
+
+    <div class="event-content">
+      <div class="badge">Reception</div>
+      <h3 class="serif">Wedding Reception</h3>
+      <p>An evening of celebration, music, memories, and joy with family and friends.</p>
+
+      <div class="event-meta">
+        <span>📅 05 July 2026</span>
+        <span>🕖 7:00 PM</span>
+      </div>
+
+      <a class="event-btn"
+         href="https://www.google.com/maps/search/?api=1&query=N+Convention+Center+Bhavanipuram+Vijayawada"
+         target="_blank">
+        View Venue →
+      </a>
+    </div>
+  </div>
+
 </section>
 
 
